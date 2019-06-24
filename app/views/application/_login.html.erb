@@ -1,0 +1,31 @@
+<!-- Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Sign in</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <%= form_tag('/users/sign_in', :class => 'form-signin', :id => 'login_form') do %>
+        <div class="modal-body text-center">
+          <label for="user_email" class="sr-only">Email address</label>
+          <input type="email" name="user[email]" id="user_email" class="form-control" placeholder="Email address" required autofocus>
+          <label for="user_password" class="sr-only">Password</label>
+          <input type="password" name="user[password]" id="user_password" class="form-control" placeholder="Password" required>
+          <div class="mb3">
+            <%= link_to 'Forgot your password?', new_password_path('user'), id: 'forgot_password_link', :'data-toggle' => 'modal', :'data-dismiss' => 'modal', :'data-target' => '#userModal' %>
+          </div>
+        </div>
+        <div class="modal-footer login-footer">
+          <a href="<%= new_user_registration_path %>" id="sign_up_link" class="btn btn-secondary login-signup" data-toggle="modal" data-target="#userModal">Create account</a>
+          <button type="submit" class="btn btn-primary login-signin">Sign in</button>
+          <div class="clearfix"></div>
+          <a href="<%= user_facebook_omniauth_authorize_path %>" class="btn btn-secondary btn-facebook btn-oauth"><%= fa_icon 'facebook' %> Sign in with Facebook</a>
+          <a href="<%= user_google_oauth2_omniauth_authorize_path %>" class="btn btn-secondary btn-google btn-oauth"><%= fa_icon 'google' %> Sign in with Google</a>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <a class="navbar-brand" href="/">
+    <img src="/images/site-icon-text.png" alt="FBA Digest logo and title" height="40" width="160">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarFbaDigest" aria-controls="navbarFbaDigest" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarFbaDigest">
+    <ul class="navbar-nav ml-auto mr-sm-4">
+      <li class="nav-item mr-sm-4">
+        <a class="btn btn-outline-info" href="#" data-toggle="modal" data-target="#filtersModal"><%= fa_icon 'filter' %> Filters</a>
+      </li>
+      <% if user_signed_in? %>
+        <li class="nav-item mr-sm-4" id="saved_posts_link"<%= ' style="display: none"'.html_safe unless current_user.has_saved_posts? %>>
+          <a class="btn btn-outline-dark" href="/saved-posts"><%= fa_icon 'clock-o' %> Saved (<span id="saved_posts_count"><%= current_user.saved_posts_count %></span>)</a>
+        </li>
+        <li class="nav-item dropdown mr-sm-4">
+          <a class="btn btn-outline-primary dropdown-toggle" href="#" id="accountDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= fa_icon 'user' %> <%= current_user.first_name_short %></a>
+          <div class="dropdown-menu" aria-labelledby="accountDropdown">
+            <%= link_to 'Edit profile', edit_user_registration_path, :class => 'dropdown-item', :id => 'edit_profile_link', :'data-toggle' => 'modal', :'data-target' => '#userModal' %>
+            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#notificationsModal">Notification settings</a>
+            <%= link_to 'Logout', destroy_user_session_path, method: :delete, :class => 'dropdown-item' %>
+          </div>
+        </li>
+      <% else %>
+        <li class="nav-item mr-sm-4" data-toggle="modal" data-target="#loginModal">
+          <a class="btn btn-primary" id="sign_in_button" href="javascript:void(0)" data-toggle="tooltip" title="Sign into your account for many personalized features!"><%= fa_icon 'user' %> Sign in</a>
+        </li>
+      <% end %>
+      <li class="nav-item dropdown">
+        <a class="btn btn-outline-secondary dropdown-toggle" href="#" id="informationDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= fa_icon 'info-circle' %> Info</a>
+        <div class="dropdown-menu" aria-labelledby="informationDropdown">
+          <a class="dropdown-item" href="/about">About FBA Digest</a>
+          <a class="dropdown-item" href="/resources">Resources</a>
+          <a class="dropdown-item" href="/partners">Partners</a>
+          <a class="dropdown-item" href="/contact-us">Contact us</a>
+          <a class="dropdown-item" href="/terms-of-service">Terms of Service</a>
+          <a class="dropdown-item" href="/privacy-policy">Privacy Policy</a>
+        </div>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0" action="/">
+      <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search" required>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>

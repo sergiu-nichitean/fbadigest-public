@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>Hi <%= @user_params[:first_name] %>,</p>
+    <p>In case you've missed them, here are the top 3 most read articles of last week on <a href="https://www.fbadigest.com/">FBA Digest</a>:</p>
+
+    <ul>
+      <% @newsletter_params[:articles].each do |a| %>
+        <li><a href="<%= a.absolute_url %>"><%= a.title %></a> (Source: <%= a.source.name %>)</li>
+      <% end %>
+    </ul>
+
+    <p>Have a great week ahead!</p>
+    <p>Serge Nikita<br>
+    Founder, <a href="https://www.fbadigest.com/">FBA Digest</a></p>
+    <hr style="margin-top: 200px">
+    <p style="font-size: 80%">You have received this email because you are subscribed to the FBA Digest weekly newsletter.<br>
+    If you wish to unsubscribe, please log into your <a href="https://www.fbadigest.com/">FBA Digest account</a>, click on your name, then "Edit profile" and uncheck "Subscribe to newsletter".</p>
+  </body>
+</html>

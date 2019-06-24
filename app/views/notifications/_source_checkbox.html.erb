@@ -1,0 +1,4 @@
+<div class="custom-control custom-checkbox source-checkbox-container">
+  <input type="checkbox" class="custom-control-input n-source-checkbox" value="<%= s.id %>" data-category="<%= s.category_id %>" id="n-source-<%= s.id %>"<%= ' checked' if current_user.get_notification_sources.include? s.id %>>
+	<label class="custom-control-label" for="n-source-<%= s.id %>"><%= s.name %></label>
+</div>

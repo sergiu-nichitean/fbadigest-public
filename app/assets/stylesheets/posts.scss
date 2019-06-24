@@ -1,0 +1,127 @@
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6 {margin-bottom: 1rem}
+.post-content .alert, .post-content p, .post-content ol, .post-content ul, .post-content dl {margin-bottom: 1.5rem}
+
+#posts {display: flex; display: -webkit-flex; -webkit-flex-flow: row wrap; flex-flow: row wrap;}
+.post-container {margin-top: 15px; -webkit-flex-direction: column; flex-direction: column;   transition: -webkit-transform 0.6s ease; transition: transform 0.6s ease; transition: transform 0.6s ease, -webkit-transform 0.6s ease}
+	.post-container .card {height: 100%}
+  .post-container .card .card-body {display: flex; flex-flow: column nowrap;}
+.post-image {height: 150px; background-position: center; background-size: cover; position: relative;}
+.post-meta {margin-top: auto}
+.post-meta .filter-source {max-width: 50%; text-overflow: ellipsis; overflow: hidden;}
+
+.modal-image {width: auto; height: 150px; margin: -16px -15px 15px -15px; background-position: center; background-size: cover}
+.full-image {width: auto; height: 200px; margin: 1rem 0 1.5rem 0; background-position: center; background-size: cover;}
+.responsive-image {max-width: 100% !important}
+
+.post-sidebar .card {margin-bottom: 1rem}
+
+.related-posts {display: flex; display: -webkit-flex; -webkit-flex-flow: row wrap; flex-flow: row wrap;}
+.related-posts .col-md-4 {flex-direction: column;}
+.related-posts .col-md-4 .card {height: 100%}
+.related-posts .col-md-4 .card .card-body {display: flex; flex-flow: column nowrap;}
+
+@media (min-width: 576px) {
+  .modal-image {height: 200px;}
+  .full-image {height: 250px;}
+  .post-sidebar .post-image {height: 300px;}
+}
+
+@media (min-width: 768px) {
+  .full-image {height: 300px;}
+}
+
+@media (min-width: 992px) {
+  .modal-image {height: 300px;}
+  .full-image {height: 400px;}
+  .post-sidebar .post-image {height: 150px;}
+}
+
+@media (min-width: 1200px) {
+  .full-image {height: 500px;}
+}
+
+.login-footer {display: block;}
+.login-signup {margin: 0 !important; float: left;}
+.login-signin {margin: 0 !important; float: right;}
+
+.btn-oauth {width: 100%; margin: 10px 0 0 0 !important;}
+.btn-facebook {background-color: #3B5998; border-color: #3B5998}
+	.btn-facebook:hover {background-color: #30497f}
+.btn-google {background-color: #db3236; border-color: #db3236}
+	.btn-google:hover {background-color: #ba2a2e}
+
+.loading-animation {
+  display: inline-block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  left: 50%;
+  margin-left: -32px;
+  top: 50%;
+  margin-top: -32px;
+}
+.loading-animation div {
+  display: inline-block;
+  position: absolute;
+  left: 6px;
+  width: 13px;
+  background: #3498db;
+  animation: loading-animation 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+.loading-animation div:nth-child(1) {
+  left: 6px;
+  animation-delay: -0.24s;
+}
+.loading-animation div:nth-child(2) {
+  left: 26px;
+  animation-delay: -0.12s;
+}
+.loading-animation div:nth-child(3) {
+  left: 45px;
+  animation-delay: 0;
+}
+@keyframes loading-animation {
+  0% {
+    top: 6px;
+    height: 51px;
+  }
+  50%, 100% {
+    top: 19px;
+    height: 26px;
+  }
+}
+
+.upper-right {position: absolute; top: 5px; right: 8px;}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px; height: 0; overflow: hidden;
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.filters-alert .alert {margin-bottom: 0}
+.filters-alert:first-child {margin-top: 0.5rem}
+.filters-alert + .filters-alert {margin-top: 1rem}
+
+.check-or-cross {
+  margin-right: 5px;
+  width: 21px;
+}
+
+@media (max-width: 576px) {
+  .social-share-others {width: 100%; text-align: left; margin-top: 1rem}
+}

@@ -1,0 +1,16 @@
+<div class="card">
+	<a href="/<%= post.slug %>/" data-post_id="<%= post.id %>">
+		<div id="post_image_<%= post.id %>" class="card-img-top post-image">
+			<img class="d-none" src="<%= post.final_image_url %>" id="preload_image_<%= post.id %>" onload="swap_image_loader(this, <%= post.id %>)">
+			<div id="post_image_loader_<%= post.id %>" class="loading-animation"><div></div><div></div><div></div></div>
+		</div>
+	</a>
+  <div class="card-body">
+    <h5 class="card-title"><a href="/<%= post.slug %>/" class="post-title text-dark"><%= post.clean_title %></a></h5>
+    <div class="post-meta">
+	    <div class="clearfix"></div>
+	    <div class="badge badge-secondary float-left mt-4"><%= time_ago_in_words post.published %></div>
+	    <a href="/<%= post.slug %>/" class="btn btn-secondary mt-4 float-right" data-post_id="<%= post.id %>">Read more</a>
+    </div>
+  </div>
+</div>

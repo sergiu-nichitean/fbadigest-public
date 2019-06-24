@@ -1,0 +1,4 @@
+<div class="custom-control custom-checkbox source-checkbox-container">
+  <input type="checkbox" class="custom-control-input f-source-checkbox" value="<%= s.id %>" data-category="<%= s.category_id %>" id="f-source-<%= s.id %>"<%= ' checked' if @selected_filters['sources'].include? s.id.to_s %>>
+  <label class="custom-control-label" for="f-source-<%= s.id %>"><%= s.name %></label>
+</div>

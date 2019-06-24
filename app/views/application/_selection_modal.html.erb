@@ -1,0 +1,41 @@
+<div class="d-none d-sm-block">
+  <div class="row">
+    <div class="col-sm-6 col-lg-4">
+      <h4>Categories</h4>
+    </div>
+    <div class="col-sm-6 col-lg-8">
+      <h4>Sources</h4>
+    </div>
+  </div>
+</div>
+
+<% hide_first_hr = true %>
+<% @categories.each do |c| %>
+  <hr<% if hide_first_hr %> class="d-none d-sm-block"<% end %>>
+  <% hide_first_hr = false %>
+  <div class="row">
+    <div class="col-sm-6 col-lg-4">
+      <%= render partial: 'category_checkbox', locals: {c: c} %>
+    </div>
+    <% if c.sources.count > 4 %>
+      <% c.sources.each_with_index do |s, i| %>
+        <% middle = (c.sources.count.to_f / 2).ceil %>
+        <% if i % middle == 0 %>
+          <div class="col-sm-6 col-lg-4<% if i > 0 %> offset-sm-6 offset-lg-0<% end %>">
+        <% end %>
+        
+        <%= render partial: 'source_checkbox', locals: {s: s} %>
+
+        <% if (i + 1) % middle == 0 || (i + 1 == c.sources.count) %>
+          </div>
+        <% end %>
+      <% end %>
+    <% else %>
+      <div class="col-sm-6">
+        <% c.sources.each do |s| %>
+          <%= render partial: 'source_checkbox', locals: {s: s} %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

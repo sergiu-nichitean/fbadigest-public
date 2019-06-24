@@ -1,0 +1,63 @@
+// Place all the styles related to the MainSite controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {padding-top: 4.5rem}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .checkbox {
+  font-weight: 400;
+}
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.heading-mt2 {margin-top: 2em}
+
+.cookies-eu {background: #000 !important; color: #eee}
+.cookies-eu-link {color: #93c7ff;}
+
+.resources-page .col-sm-6 {margin-top: 2em}
+
+footer {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+@media (max-width: 991px) {
+  .navbar-nav .nav-item {margin-top: 0.5rem}
+  .navbar-nav .nav-item a {width: 302px;}
+  .tooltip.bs-tooltip-bottom {top: 54px !important; left: auto !important; right: 0 !important}
+  .tooltip.bs-tooltip-bottom .arrow {right: 24px !important; left: auto !important;}
+}
+
+@media (max-width: 575px) {
+  .navbar-nav .nav-item a {width: 100%;}
+}
+
+@media (max-width: 767px) {
+  .cookies-eu {position: fixed !important;}
+}

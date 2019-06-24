@@ -1,0 +1,14 @@
+<main class="container">
+	<div class="row">
+		<div class="col-sm-12">
+			<h1>Contact us</h1>
+			<%= form_tag('/submit-web-push', method: :post) do %>
+				<div class="form-group">
+					<label for="message">Message</label>
+					<input name="message" type="text" class="form-control" id="message" required placeholder="Message">
+				</div>
+				<button type="submit" class="btn btn-primary">Submit</button>
+			<% end %>
+		</div>
+	</div>
+</main>

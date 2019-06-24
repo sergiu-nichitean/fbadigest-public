@@ -1,0 +1,65 @@
+<div class="modal-body">
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <div class="row">
+    <div class="col-lg-<%= current_user.is_omniauth? ? '12' : '6' %>">
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, autocomplete: 'email', readonly: true, :class => 'form-control-plaintext', :placeholder => 'Enter email' %>
+        <small class="form-text text-muted">If you wish to change the email address associated with your account, please <a href="/contact-us">contact us</a>.</small>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name, required: true, autocomplete: 'first_name', :class => 'form-control', :placeholder => 'Enter first name' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name, required: true, autocomplete: 'last_name', :class => 'form-control', :placeholder => 'Enter last name' %>
+      </div>
+
+      <div class="form-check">
+        <%= f.check_box :newsletter_subscribed, :class => 'form-check-input' %>
+        <%= f.label :newsletter_subscribed, 'Subscribe to newsletter? (recommended)' %>
+        <small id="emailHelp" class="form-text text-muted mb-3">We will send you weekly digests with the most important Amazon Seller news of the week.</small>
+      </div>
+    </div>
+    
+    <% unless current_user.is_omniauth? %>
+      <div class="col-lg-6">
+        <div class="form-group">
+          <%= f.label :password %>
+          <%= f.password_field :password, autocomplete: 'new-password', :class => 'form-control', :placeholder => 'Password' %>
+          <% if @minimum_password_length %>
+            <small class="form-text text-muted">(<%= @minimum_password_length %> characters minimum)</small>
+          <% end %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: 'new-password', :class => 'form-control mt-lg-3', :placeholder => 'Password confirmation' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :current_password %>
+          <%= f.password_field :current_password, autocomplete: 'current-password', :class => 'form-control', :placeholder => 'Password' %>
+          <% if @minimum_password_length %>
+            <small class="form-text text-muted">(we need your current password to confirm your changes)</small>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update", :class => 'btn btn-primary' %>
+  </div>
+<% end %>
+
+<h5 class="heading-mt2">Cancel my account</h5>
+
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, :class => 'btn btn-danger' %></p>
+</div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+  </div>

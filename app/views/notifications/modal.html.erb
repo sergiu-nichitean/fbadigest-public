@@ -1,0 +1,3 @@
+<%= render partial: 'application/selection_modal' %>
+
+<input type="hidden" id="n_selected_sources" value="<%= current_user.get_notification_sources.join(',') %>">

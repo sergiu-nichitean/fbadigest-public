@@ -1,0 +1,8 @@
+<h4><%= t 'commontator.email.comment_created.body',
+          creator_name: @creator_name,
+          commontable_name: @commontable_name %></h4>
+
+<%= render partial: 'commontator/comments/body',
+           locals: { comment: @comment } %>
+
+<p><a href="https://www.fbadigest.com/<%= @comment.thread.commontable.slug %>#comment_<%= @comment.id %>_div">Click here</a> to view all comments on post "<%= @comment.thread.commontable.clean_title %>".</p>

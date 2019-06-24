@@ -1,0 +1,11 @@
+<div class="modal-image" style="background-image: url('<%= @post.final_image_url %>')"></div>
+
+<p class="float-left"><a class="filter-source" href="#" data-source_ids="<%= @post.category.sources.collect{|s| s.id}.join(',') %>" <%= @post.category_id %>"><%= @post.category.name %></a> / <a class="filter-source" href="#" data-source_ids="<%= @post.source_id %>"><%= @post.source.name %></a> / <%= @post.published.strftime("%B %-d, %Y") %></p>
+
+<div class="clearfix"></div>
+
+<p><%= @post.clean_content[0..500] %>...</p>
+
+<a target="_blank" href="<%= @post.external_url %>" class="btn btn-primary mt-2"><%= fa_icon 'external-link' %> Open full article</a>
+
+<a target="_blank" href="/<%= @post.slug %>#thread_<%= @post.thread.id %>_header_span" class="btn btn-info ml-2 mt-2"><%= fa_icon 'comment' %> Comments (<%= @post.thread.comments.count %>)</a>

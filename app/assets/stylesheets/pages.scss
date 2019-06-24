@@ -1,0 +1,13 @@
+.buget-form-control label {float: left; width: 180px; margin-top: 4px}
+.buget-form-control input {float: left; text-align: right; width: 150px}
+.buget-form-control {margin-bottom: 10px}
+.buget-form-control .question-mark img {float: left; width: 24px; height: 24px; margin: 5px 0 0 10px;}
+.buget-form-control .currency {float: left; width: 18px; margin-top: 4px;}
+.buget-form-control .currency + input {width: 132px}
+.buget-form-control .value {float: left;}
+.buget-total-container {font-weight: bold;}
+.buget-form-control .buget-total {float: left; width: 132px; border: 1px solid #ccc; padding: 5px; text-align: right;}
+.buget-form-control .buget-tooltip {display: none; position: absolute; left: 15px; right: 15px; margin-top: 42px; background: #ffffe1; padding: 15px; border: 1px solid #d7d7bf; z-index: 9999}
+.buget-form-control .close-tooltip img {width: 16px; height: 16px; position: absolute; right: 15px; bottom: 15px;}
+.buget-form-control + .error {color: red; display: none; background: #ffe4e4; padding: 3px; border: 1px solid red; margin-bottom: 15px}
+.buget-form-control input.error {border: 1px solid red}

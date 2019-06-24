@@ -1,0 +1,13 @@
+<div class="card border-info mb-4 text-center<%= " #{classes.join(' ')}" if defined? classes %>">
+  <div class="card-header">Sharing is Caring!</div>
+  <div class="card-body text-info">
+  	<div class="d-inline-block">
+	    <div class="float-left mt-1 mr-3" style="width: 106px">
+	    	<div class="fb-like" data-href="<%= @original_url %>" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
+		</div>
+		<div class="float-left social-share-others">
+	    	<%= social_share_button_tag(post.clean_title) %>
+	    </div>
+    </div>
+  </div>
+</div>

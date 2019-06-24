@@ -1,0 +1,12 @@
+Hi <%= @user_params[:first_name] %>,
+
+In case you've missed them, here are the top 3 most read articles on FBA Digest last week on FBA Digest:
+
+<% @newsletter_params[:articles].each do |a| %>
+	- <%= a.title %> (Source: <%= a.source.name %>): <%= a.absolute_url %>
+<% end %>
+
+Have a great week ahead!
+
+Serge Nikita
+Founder, FBA Digest

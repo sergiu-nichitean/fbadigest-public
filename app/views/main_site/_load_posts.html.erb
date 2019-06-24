@@ -1,0 +1,59 @@
+<% if @isolated_filter %>
+	<div class="row filters-alert" style="display: none">
+		<div class="col-sm-12">
+			<div class="alert alert-secondary" role="alert">
+				Only showing posts from <%= @isolated_filter %>. <a class="badge badge-danger" id="reset_filters" href="#">Reset filters</a>
+			</div>
+		</div>
+	</div>
+<% end %>
+
+<% if @search_string %>
+	<div class="row filters-alert" style="display: none">
+		<div class="col-sm-12">
+			<div class="alert alert-secondary" role="alert">
+				Your search for <strong><%= @search_string %></strong> returned <strong><%= @all_results_count %></strong> result<%= 's' unless @all_results_count == 1 %>. <a class="badge badge-danger" href="/">Cancel search</a>
+			</div>
+		</div>
+	</div>
+<% end %>
+
+<% @posts.each_with_index do |post, key| %>
+  <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 post-container" data-post_id="<%= post.id %>">
+    <div class="card">
+	    <a href="<%= post.internal? ? "/#{post.slug}/" : '#' %>"<%= ' class="external-post" data-toggle="modal" data-target="#postModal"'.html_safe unless post.internal? %> data-post_id="<%= post.id %>">
+	    	<div id="post_image_<%= post.id %>" class="card-img-top post-image">
+	    		<img class="d-none" src="<%= post.final_image_url %>" id="preload_image_<%= post.id %>" onload="swap_image_loader(this, <%= post.id %>)">
+	    		<div id="post_image_loader_<%= post.id %>" class="loading-animation"><div></div><div></div><div></div></div>
+	    		<% if user_signed_in? && current_user.last_visit && current_user.last_visit < post.published %>
+	    			<div class="h3 upper-right">
+	    				<span class="badge badge-danger">New</span>
+    				</div>
+	    		<% end %>
+	    	</div>
+    	</a>
+	    <div class="h3 upper-right"<%= ' style="right: 77px"'.html_safe if user_signed_in? && current_user.last_visit && current_user.last_visit < post.published %>>
+	    	<% if user_signed_in? %>
+		    	<% if post.is_saved_by?(current_user) %>
+						<a class="badge badge-pill badge-success save-post" data-toggle="tooltip" data-placement="left" title="Remove from saved posts" href="#"><i class="fa check-or-cross fa-check"></i> <%= fa_icon 'clock-o' %></a>
+					<% else %>
+						<a class="badge badge-pill badge-warning save-post" data-toggle="tooltip" data-placement="left" title="Save for later!" href="#"><%= fa_icon 'clock-o' %></a>
+					<% end %>
+				<% else %>
+					<a class="badge badge-pill badge-warning save-post-visitor" data-toggle="tooltip" data-placement="left" title="Save for later!" href="#"><%= fa_icon 'clock-o' %></a>
+				<% end %>
+			</div>
+		  <div class="card-body">
+		    <h5 class="card-title"><a href="<%= post.internal? ? "/#{post.slug}/" : '#' %>" class="post-title text-dark<%= ' external-post' unless post.internal? %>" data-post_id="<%= post.id %>" <%= 'data-toggle="modal" data-target="#postModal"'.html_safe unless post.internal? %>><%= post.clean_title %></a></h5>
+		    <p class="card-text mb-2"><%= post.clean_content[0..100] %>...</p>
+		    <div class="post-meta">
+			    <a class="badge badge-warning float-left filter-source" href="#" data-source_ids="<%= post.category.sources.collect{|s| s.id}.join(',') %>"><%= post.category.name %></a>
+			    <a class="badge badge-info float-right filter-source" href="#" data-source_ids="<%= post.source.id %>"><%= post.source.name %></a>
+			    <div class="clearfix"></div>
+			    <div class="badge badge-secondary float-left mt-4"><%= time_ago_in_words post.published %></div>
+			    <a href="<%= post.internal? ? "/#{post.slug}/" : '#' %>" class="btn btn-secondary mt-4 float-right<%= ' external-post' unless post.internal? %>" data-post_id="<%= post.id %>" <%= 'data-toggle="modal" data-target="#postModal"'.html_safe unless post.internal? %>>Read more</a>
+		    </div>
+		  </div>
+    </div>
+  </div>
+<% end %>

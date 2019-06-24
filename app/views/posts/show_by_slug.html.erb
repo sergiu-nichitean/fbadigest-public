@@ -1,0 +1,50 @@
+<main class="container">
+	<div class="row">
+		<div class="col-lg-9 post-content">
+			<div class="full-image" style="background-image: url('<%= @post.final_image_url %>')"></div>
+			<h1><%= @post.clean_title %></h1>
+			<p class="alert alert-secondary clearfix">
+				<span class="float-left"><a class="filter-source" href="/?sources=<%= @post.category.sources.collect{|s| s.id}.join(',') %>"><%= @post.category.name %></a> / <a class="filter-source" href="/?sources=<%= @post.source_id %>"><%= @post.source.name %></a> / <%= @post.published.strftime("%B %-d, %Y") %></span>
+				<% if @post.internal? %>
+					<span class="float-right">Author: <a href="/about">Serge Nikita</a></span>
+				<% end %>
+			</p>
+			
+			<%= render partial: 'social_share', locals: {post: @post} %>
+
+			<article>
+				<%= @post.content.html_safe %><% unless @post.internal? %>...<% end %>
+			</article>
+
+			<% if @post.internal? %>
+				<%= render partial: 'social_share', locals: {post: @post, classes: ['mt-3']} %>
+			<% else %>
+
+				<div class="card border-info mb-3 mt-3 text-center">
+				  <div class="card-body text-info">
+				  	<a target="_blank" href="<%= @post.external_url %>" class="btn btn-primary">Read the whole story</a>
+				  </div>
+				</div>
+			<% end %>
+
+			<%= commontator_thread(@post) %>
+
+			<h2 class="mt-4">Related Posts</h2>
+			<div class="row related-posts">
+				<% @post.get_related_posts.each do |r_post| %>
+					<div class="col-md-4">
+						<%= render partial: 'clean_post', locals: {post: r_post} %>
+					</div>
+				<% end %>
+			</div>
+		</div>
+		<div class="col-lg-3 post-sidebar">
+			<div class="alert alert-primary text-center mt-3">
+			  <h3>Latest Posts</h3>
+			</div>
+			<% @post.get_sidebar_posts.each do |s_post| %>
+				<%= render partial: 'clean_post', locals: {post: s_post} %>
+			<% end %>
+		</div>
+	</div>
+</main>

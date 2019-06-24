@@ -1,0 +1,48 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="form-group">
+          <%= f.label :email %>
+          <%= f.email_field :email, autofocus: true, required: true, autocomplete: 'email', :class => 'form-control', :placeholder => 'Enter email' %>
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :first_name %>
+          <%= f.text_field :first_name, required: true, autocomplete: 'first_name', :class => 'form-control', :placeholder => 'Enter first name' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name, required: true, autocomplete: 'last_name', :class => 'form-control', :placeholder => 'Enter last name' %>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="form-group">
+          <%= f.label :password %>
+          <%= f.password_field :password, required: true, autocomplete: 'new-password', :class => 'form-control', :placeholder => 'Password' %>
+          <% if @minimum_password_length %>
+            <small class="form-text text-muted">(<%= @minimum_password_length %> characters minimum)</small>
+          <% end %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, required: true, autocomplete: 'new-password', :class => 'form-control', :placeholder => 'Password confirmation' %>
+        </div>
+
+        <div class="form-check">
+          <%= f.check_box :newsletter_subscribed, :class => 'form-check-input' %>
+          <%= f.label :newsletter_subscribed, 'Subscribe to newsletter? (recommended)' %>
+          <small id="emailHelp" class="form-text text-muted">We will send you weekly digests with the most important Amazon Seller news of the week.</small>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    <button type="submit" class="btn btn-primary">Sign up</button>
+  </div>
+<% end %>

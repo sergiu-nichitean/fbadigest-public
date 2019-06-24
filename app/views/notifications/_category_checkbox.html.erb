@@ -1,0 +1,4 @@
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" class="custom-control-input n-category-checkbox" value="<%= c.id %>" data-sources="<%= c.sources.collect{|s| s.id}.join(',') %>" id="n-category-<%= c.id %>"<%= ' checked' unless current_user.get_notification_sources - c.sources.collect{|s| s.id} == current_user.get_notification_sources %>>
+  <label class="custom-control-label" for="n-category-<%= c.id %>"><%= c.name %></label>
+</div>

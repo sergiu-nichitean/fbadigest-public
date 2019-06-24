@@ -1,0 +1,4 @@
+<div class="custom-control custom-checkbox">
+	<input type="checkbox" class="custom-control-input f-category-checkbox" value="<%= c.id %>" data-sources="<%= c.sources.collect{|s| s.id}.join(',') %>" id="f-category-<%= c.id %>"<%= ' checked' unless @selected_filters['sources'].collect{|s| s.to_i} - c.sources.collect{|s| s.id} == @selected_filters['sources'].collect{|s| s.to_i} %>>
+	<label class="custom-control-label" for="f-category-<%= c.id %>"><%= c.name %></label>
+</div>

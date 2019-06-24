@@ -1,0 +1,102 @@
+<main class="container">
+	<div class="row">
+		<div class="col-sm-12">
+            <div class="full-image" style="background-image: url('https://amazon-seller.ro/wp-content/uploads/2018/08/og-image-1.jpg')"></div>
+            <h1>Budget Calculator</h1>
+
+            <p>Have you found a product that shows potential? Congratulations!</p>
+
+            <p>Find out an estimate of how much money you will need to launch it on Amazon (FBA Private Label) using this tool.</p>
+
+            <div class="form-group buget-form-control clearfix">
+                <label>Net price:</label>
+                <div class="value">
+                    <span class="currency">$</span>
+                    <input type="text" id="pret_net" class="form-control">
+                    <a class="question-mark" rel="pret-net-info" href="javascript:void(0)">
+                        <img src="https://amazon-seller.ro/wp-content/plugins/sergiu-scripts/img/question.png">
+                    </a>
+                    <div class="buget-tooltip pret-net-info">
+                        It's the sale price minus the Amazon fees (referral commission, FBA pick&pack). In <a href="https://affiliate.junglescout.com/idevaffiliate.php?id=2167&tid1=site" target="_blank">Jungle Scout</a>, it appears both in the Product Database and in the Product Tracker. You can get the same information from the <a href="https://sellercentral.amazon.com/hz/fba/profitabilitycalculator/index?lang=en_US">FBA Revenue Calculator</a>. For example, we have a product that sells for $30 on Amazon and has a standard size & weight. Its net price will be: 30 (selling price) - 4.5 (Amazon referral commission 15%) - 3.2 (FBA pick&pack) = $22.3.<br>
+                            <img src="https://amazon-seller.ro/wp-content/plugins/sergiu-scripts/img/pret_net.jpg" style="max-width: 100%">
+                        <a href="javascript:void(0)" class="close-tooltip"><img src="https://amazon-seller.ro/wp-content/plugins/sergiu-scripts/img/close.png"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="error"></div>
+            <div class="form-group buget-form-control clearfix">
+                <label>Landed cost:</label>
+                <div class="value">
+                    <span class="currency">$</span>
+                    <input type="text" id="landed_cost" class="form-control">
+                    <a class="question-mark" rel="landed-cost-info" href="javascript:void(0)">
+                        <img src="https://amazon-seller.ro/wp-content/plugins/sergiu-scripts/img/question.png">
+                    </a>
+                    <div class="buget-tooltip landed-cost-info">
+                        Manufacturing cost plus the cost of shipping from the supplier to the FBA warehouse for one unit. You will find out the average manufacturing cost by doing a search on Alibaba, and you can estimate the shipping cost based on the price of $8/kg for the courier method, which is the one I recommend at the beginning.
+                        <a href="javascript:void(0)" class="close-tooltip"><img src="https://amazon-seller.ro/wp-content/plugins/sergiu-scripts/img/close.png"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="error"></div>
+            <div class="form-group buget-form-control clearfix">
+                <label>Monthly units sold:</label>
+                <div class="value">
+                    <input type="text" id="unitati_lunare" class="form-control">
+                    <a class="question-mark" rel="unitati-lunare-info" href="javascript:void(0)">
+                        <img src="https://amazon-seller.ro/wp-content/plugins/sergiu-scripts/img/question.png">
+                    </a>
+                    <div class="buget-tooltip unitati-lunare-info">
+                        The average number of units sold monthly by the first 3 best selling products in the niche. You can get it from <a href="https://affiliate.junglescout.com/idevaffiliate.php?id=2167&tid1=site" target="_blank">Jungle Scout</a> by adding the first 3 products from the search results list for the main keyword into the Product Tracker. Then you can calculate the the monthly average between them ("Avg. Daily Units Sold" multiplied by 30).<br>
+                            <img src="https://amazon-seller.ro/wp-content/plugins/sergiu-scripts/img/unitati_vandute.jpg" style="max-width: 100%">
+                        <a href="javascript:void(0)" class="close-tooltip"><img src="https://amazon-seller.ro/wp-content/plugins/sergiu-scripts/img/close.png"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="error"></div>
+            <div class="form-group buget-form-control clearfix">
+                <label>PPC cost / sale:</label>
+                <div class="value">
+                    <span class="currency">$</span>
+                    <input type="text" id="cost_ppc" class="form-control">
+                    <a class="question-mark" rel="cost-ppc-info" href="javascript:void(0)">
+                        <img src="https://amazon-seller.ro/wp-content/plugins/sergiu-scripts/img/question.png">
+                    </a>
+                    <div class="buget-tooltip cost-ppc-info">
+                        For estimating this cost, please use the <a href="https://affiliate.junglescout.com/idevaffiliate.php?id=2167&tid1=site" target="_blank">Jungle Scout Keyword Scout</a>, where you can enter the main keyword, take the value from "Exact PPC Bid" and multiply it by 10.<br>
+                            <img src="https://amazon-seller.ro/wp-content/plugins/sergiu-scripts/img/buget2.jpg" style="max-width: 100%">
+                        <a href="javascript:void(0)" class="close-tooltip"><img src="https://amazon-seller.ro/wp-content/plugins/sergiu-scripts/img/close.png"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="error"></div>
+            <div class="form-group buget-form-control clearfix">
+                <label>Fixed marketing cost:</label>
+                <div class="value">
+                    <span class="currency">$</span>
+                    <input type="text" id="cost_fix_marketing" value="800" class="form-control">
+                    <a class="question-mark" href="javascript:void(0)" rel="cost-marketing-info">
+                        <img src="https://amazon-seller.ro/wp-content/plugins/sergiu-scripts/img/question.png">
+                    </a>
+                    <div class="buget-tooltip cost-marketing-info">
+                        The fixed marketing cost for starting the business. Includes money for: images (photographer, editor), text (copywriter), software tools (subscription for 3 months), barcodes (from GS1) and a margin for unexpected costs. My default estimate is $800.
+                        <a href="javascript:void(0)" class="close-tooltip"><img src="https://amazon-seller.ro/wp-content/plugins/sergiu-scripts/img/close.png"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="error"></div>
+            <div class="form-group  buget-form-control buget-total-container clearfix">
+                <label>Necesary Budget:</label>
+                <div class="value">
+                    <span class="currency">$</span>
+                    <span class="buget-total" id="buget_total">0</span>
+                </div>
+            </div>
+
+            <a class="btn btn-success" id="buton_calcul" href="javascript:void(0)">Calculate Now!</a>
+
+            <script type="text/javascript" src="https://amazon-seller.ro/wp-content/plugins/sergiu-scripts/js/countUp.min.js"></script>
+
+        </div>
+    </div>
+</main>
